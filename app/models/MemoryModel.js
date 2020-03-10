@@ -44,6 +44,10 @@ class MemoryModel extends Model {
   static find(predicates = {}) {
     const predicateKeys = Object.keys(predicates);
 
+    if (predicateKeys.length === 0) {
+      return [...mem.values()].map((rec) => this.fromJSON(rec));
+    }
+
     if (predicateKeys.length === 1 && predicateKeys[0] === this.idFieldName) {
       const foundFields = mem.get(predicates[this.idFieldName]);
       return this.fromJSON(foundFields);

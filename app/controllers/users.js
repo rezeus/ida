@@ -49,7 +49,7 @@ async function updateById(ctx) {
   const id = ctx.params.id;
   const body = ctx.request.body;
 
-  await User.updateById(id, body); // FIXME TR Eskileri siliyor, sadece değiştirilenler kaydoluyor
+  await User.updateById(id, body);
 
   ctx.status = 204;
 }
