@@ -29,6 +29,13 @@ function requireModels(context/* , services */) {
     [name]: require(absPath)/* (services) */,
   }), {});
 
+  let ModelClass;
+  Object.keys(models).forEach((modelName) => {
+    ModelClass = models[modelName];
+
+    ModelClass.ee = context.ee;
+  });
+
   context.models = models;
 }
 

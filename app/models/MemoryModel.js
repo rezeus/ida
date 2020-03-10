@@ -30,8 +30,9 @@ class MemoryModel extends Model {
 
         const changes = _.pick(this.toJSON(), this.getChangedFieldNames());
 
+        const oldFields = mem.get(this.id);
         const newFields = {
-          ...mem.get(this.id),
+          ...oldFields,
           ...changes,
         };
         mem.set(this.id, newFields);
@@ -75,6 +76,10 @@ class MemoryModel extends Model {
     return this.find({ id });
   }
 
+  static existsById(id) {
+    return mem.has(id);
+  }
+
   static updateById(id, updates) {
     let combined;
 
@@ -87,12 +92,24 @@ class MemoryModel extends Model {
       combined = { ...updates };
     }
 
+    this.beforeUpdate();
+
     mem.set(id, combined);
+
+    this.afterUpdate();
   }
 
   static deleteById(id) {
     // NOTE Return true if deleted, false otherwise (e.g. wasn't exist in the first place)
     return mem.delete(id);
+  }
+
+  afterCreate() {
+    this.constructor.ee.emitAsync(`/models/${this.constructor.name.toLowerCase()}/created`, this);
+  }
+
+  afterUpdate(changedFieldNames) {
+    this.constructor.ee.emitAsync(`/models/${this.constructor.name.toLowerCase()}/updated`, this, changedFieldNames);
   }
 }
 

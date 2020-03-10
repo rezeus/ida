@@ -49,12 +49,37 @@ async function updateById(ctx) {
   const id = ctx.params.id;
   const body = ctx.request.body;
 
-  await User.updateById(id, body);
+  /** @type {User} */
+  const user = await User.findById(id);
+
+  if (!user) {
+    ctx.throw(404);
+  }
+
+  user.setFields(body);
+
+  await user.save();
 
   ctx.status = 204;
 }
+// async function updateById(ctx) {
+//   const id = ctx.params.id;
+//   const body = ctx.request.body;
+
+//   const exists = await User.existsById(id);
+
+//   if (!exists) {
+//     ctx.throw(404);
+//   }
+
+//   await User.updateById(id, body);
+
+//   ctx.status = 204;
+// }
 
 /**
+ * curl -X DELETE http://localhost:3000/users/1583845688
+ *
  * @param {KoaContext} ctx
  */
 async function deleteById(ctx) {
@@ -80,3 +105,4 @@ module.exports = {
 
 
 /** @typedef {import('koa').Context} KoaContext */
+/** @typedef {import('../models/User')} User */

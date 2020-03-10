@@ -96,10 +96,10 @@
   dependencies:
     route-trie "^3.0.0"
 
-"@rezeus/model@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@rezeus/model/-/model-1.0.1.tgz#fb6bafe594bec53af7e01f04b7d4c5ca4da0fd24"
-  integrity sha512-O5SNZZF9Yf8IBLIS5CYJj7mimJdlq+5veoEDwkAO//skGxKd0mymD9e1FTMYyZn7aEVgrASgBx39rjaqJQgZ6Q==
+"@rezeus/model@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@rezeus/model/-/model-1.0.2.tgz#61527e42ed7fda11b731b991871d2765e959678c"
+  integrity sha512-vTqGK/Tjb2W/UwJ0yQ3/BB0zujCSVW44kX83XN/PzFPYJ9h4L3HZsPJwtxZF1Np5CBt4Fw7dXbNn7fQYOdNzog==
   dependencies:
     underscore "^1.9.2"
 

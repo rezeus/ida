@@ -5,8 +5,16 @@
  * @param {Logger} logger
  */
 function registerUserListeners(ee, logger) {
-  ee.on('/repositories/user/created', (user) => {
-    logger.debug(`A new user created: '${user.toJSON()}'.`);
+  ee.onAsync('/models/user/created', (user) => new Promise((resolve) => {
+    setTimeout(() => {
+      logger.debug(`A new user was created: '${JSON.stringify(user.toJSON())}'.`);
+
+      resolve();
+    }, 1000);
+  }));
+
+  ee.onAsync('/models/user/updated', (_, changedFieldNames) => {
+    logger.debug(`A user was updated, changed fields: '${changedFieldNames.join(', ')}'.`);
   });
 
   //

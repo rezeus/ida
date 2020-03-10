@@ -11,7 +11,12 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/index.js"
+      "program": "${workspaceFolder}/index.js",
+      "env": {
+        "APP_HOST": "localhost",
+        "APP_PORT": "3000",
+        "APP_LOG_LEVEL": "DEBUG",
+      }
     }
   ]
 }
