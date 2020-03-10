@@ -1,0 +1,28 @@
+{
+  "name": "ida",
+  "version": "1.0.0-alpha.1",
+  "description": "Boilerplate for robust Node.js applications as services",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Ozan Müyesseroğlu <ozanmuyes@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "mocha": "^7.1.0",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "@rezeus/korauter": "^1.0.0-beta.8",
+    "@rezeus/model": "^1.0.1",
+    "bcrypt": "^4.0.1",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "underscore": "^1.9.2"
+  }
+}
