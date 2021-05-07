@@ -23,6 +23,6 @@
     "bcrypt": "^4.0.1",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.2.1",
-    "underscore": "^1.9.2"
+    "underscore": "^1.12.1"
   }
 }
